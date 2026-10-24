@@ -5,6 +5,11 @@ two-day windows, and a separate post-storm clearing indicator. Python retrieves
 OpenWeather One Call 3.0 once daily; static HTML/CSS/JavaScript displays saved JSON.
 There is no database, application server, frontend framework, or browser weather key.
 
+Live website: https://conditionsset.pages.dev/
+
+The first live verification and deployment passed on October 23, 2026. Daily updates
+are enabled; three consecutive scheduled runs are still required for launch acceptance.
+
 ## Run locally
 
 Use Python 3.12 or newer. Install the Windows timezone dependency if needed:

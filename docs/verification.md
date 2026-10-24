@@ -23,11 +23,24 @@ The in-app browser's viewport override did not change the actual viewport. Respo
 checks therefore used fixed-size iframes in ignored local QA pages, loading the same site
 assets. These QA pages are not part of `site/` or deployment.
 
-## Not yet verified live
+## Live deployment
 
-- The real OpenWeather account/key, one-location response, and account-specific license.
-- GitHub repository/Actions configuration and Cloudflare Pages deployment.
-- Three consecutive scheduled daily refreshes.
+- Repository: https://github.com/steve-conditionsset/conditionsset
+- Public site: https://conditionsset.pages.dev/
+- One-location forecast check passed: https://github.com/steve-conditionsset/conditionsset/actions/runs/40058968026
+- Full twelve-location refresh, tests, and deployment passed: https://github.com/steve-conditionsset/conditionsset/actions/runs/40059109531
+- Published JSON is schema version 1, contains twelve correctly ranked results and only
+  documented public fields, and has `Cache-Control: no-store`.
+- All six published frontend assets match local source byte-for-byte. Live cards, date
+  range, Mountain-time update timestamp, provider images, and no horizontal overflow checked.
+- The example-data banner and stale warning are hidden for the fresh live dataset.
+- Weather key was entered directly by the user into GitHub's encrypted secret store;
+  it was never copied into local code or chat. Cloudflare credentials are encrypted secrets too.
+- Official setup actions were updated after the live runner flagged deprecated versions;
+  the successful full deployment uses checkout 7.0.1 and setup-python/setup-node 7.1.0.
+
+Still pending: **three consecutive scheduled daily refreshes**. The first successful
+deployment was manually triggered and does not count toward that acceptance criterion.
 
 At the end of local implementation, no accounts had been used and no site was published.
 No real weather API request was made during local verification.
@@ -41,6 +54,4 @@ GitHub Actions secrets; the project-name variable is `conditionsset`. No credent
 are stored in this checkout. The user saved the weather key directly into GitHub's encrypted
 `OPENWEATHER_API_KEY` secret. One-location live verification passed in
 [run 40058968026](https://github.com/steve-conditionsset/conditionsset/actions/runs/40058968026).
-The live runner flagged deprecated setup actions; all workflows now pin the official
-current releases (checkout 7.0.1, setup-python/setup-node 7.1.0). Full deployment and
-scheduled acceptance remain tracked in the launch checklist.
+Full deployment passed. Scheduled acceptance remains tracked in the launch checklist.
