@@ -38,5 +38,9 @@ The user subsequently created both accounts, the public repository
 commit. The implementation and deployment workflows have now been pushed to `main`.
 The reviewed Cloudflare Pages Write token and account identifier are saved as encrypted
 GitHub Actions secrets; the project-name variable is `conditionsset`. No credential values
-are stored in this checkout. The weather-key secret and live acceptance remain pending
-in the launch checklist.
+are stored in this checkout. The user saved the weather key directly into GitHub's encrypted
+`OPENWEATHER_API_KEY` secret. One-location live verification passed in
+[run 40058968026](https://github.com/steve-conditionsset/conditionsset/actions/runs/40058968026).
+The live runner flagged deprecated setup actions; all workflows now pin the official
+current releases (checkout 7.0.1, setup-python/setup-node 7.1.0). Full deployment and
+scheduled acceptance remain tracked in the launch checklist.

@@ -4,13 +4,13 @@ Implementation and automated tests can be verified locally. Live API and deploym
 checks require existing account access. Do not mark these complete from fixture tests.
 
 - [x] Confirm map placement of the twelve representative points (USGS topo review, October 23, 2026).
-- [ ] Run the **Verify one live forecast** workflow (or `python -m conditions.refresh --verify-one`) with the existing One Call 3.0 key.
+- [x] Run the **Verify one live forecast** workflow with the existing key: https://github.com/steve-conditionsset/conditionsset/actions/runs/40058968026 (success).
 - [ ] Confirm the account's public-display license; provider attribution is already included.
 - [x] GitHub repository created: https://github.com/steve-conditionsset/conditionsset
 - [x] Push the prepared source to the repository (`main`, implementation commit `0e7e7e0`).
 - [x] Configure encrypted `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` Actions secrets.
 - [x] Configure Actions variable `CLOUDFLARE_PROJECT_NAME` as `conditionsset`.
-- [ ] Save the existing weather key as encrypted `OPENWEATHER_API_KEY` Actions secret.
+- [x] Save the existing weather key as encrypted `OPENWEATHER_API_KEY` Actions secret (entered directly by the user).
 - [x] Create Cloudflare Pages Direct Upload project `conditionsset` (first deployment will target `main`).
 - [ ] Complete one manual live refresh/deployment; record its workflow and Pages URLs.
 - [ ] Check twelve cards, ranking, dates, last-update time, and clearing flags against JSON.
