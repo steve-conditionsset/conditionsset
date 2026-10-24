@@ -7,7 +7,7 @@ checks require existing account access. Do not mark these complete from fixture 
 - [ ] Run the **Verify one live forecast** workflow (or `python -m conditions.refresh --verify-one`) with the existing One Call 3.0 key.
 - [ ] Confirm the account's public-display license; provider attribution is already included.
 - [x] GitHub repository created: https://github.com/steve-conditionsset/conditionsset
-- [ ] Push the prepared source to the repository.
+- [x] Push the prepared source to the repository (`main`, implementation commit `0e7e7e0`).
 - [x] Configure encrypted `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` Actions secrets.
 - [x] Configure Actions variable `CLOUDFLARE_PROJECT_NAME` as `conditionsset`.
 - [ ] Save the existing weather key as encrypted `OPENWEATHER_API_KEY` Actions secret.

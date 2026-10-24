@@ -35,5 +35,8 @@ No real weather API request was made during local verification.
 The user subsequently created both accounts, the public repository
 `steve-conditionsset/conditionsset`, and the Cloudflare Pages Direct Upload project
 `conditionsset`. The local `origin` now points at that repository and retains its initial
-commit. Credential setup, source publication, and live acceptance are tracked separately
+commit. The implementation and deployment workflows have now been pushed to `main`.
+The reviewed Cloudflare Pages Write token and account identifier are saved as encrypted
+GitHub Actions secrets; the project-name variable is `conditionsset`. No credential values
+are stored in this checkout. The weather-key secret and live acceptance remain pending
 in the launch checklist.
