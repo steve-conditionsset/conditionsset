@@ -1,0 +1,14 @@
+[
+  {"id": "berthoud-pass", "name": "Berthoud Pass / Winter Park", "state": "CO", "point": "Berthoud Pass", "lat": 39.798, "lon": -105.777},
+  {"id": "steamboat", "name": "Steamboat", "state": "CO", "point": "Storm Peak area", "lat": 40.457, "lon": -106.743},
+  {"id": "crested-butte", "name": "Crested Butte", "state": "CO", "point": "Upper mountain", "lat": 38.900, "lon": -106.943},
+  {"id": "wolf-creek-pass", "name": "Wolf Creek Pass", "state": "CO", "point": "Pass summit", "lat": 37.485, "lon": -106.793},
+  {"id": "little-cottonwood", "name": "Little Cottonwood Canyon", "state": "UT", "point": "Alta upper mountain", "lat": 40.581, "lon": -111.638},
+  {"id": "powder-mountain", "name": "Powder Mountain / Ogden", "state": "UT", "point": "Powder Mountain terrain", "lat": 41.379, "lon": -111.781},
+  {"id": "la-sal-mountains", "name": "La Sal Mountains", "state": "UT", "point": "Mount Tukuhnikivatz area", "lat": 38.439, "lon": -109.260},
+  {"id": "jackson-hole", "name": "Jackson Hole / Tetons", "state": "WY", "point": "Rendezvous upper mountain", "lat": 43.597, "lon": -110.871},
+  {"id": "snowy-range", "name": "Snowy Range", "state": "WY", "point": "Medicine Bow Peak area", "lat": 41.360, "lon": -106.317},
+  {"id": "taos", "name": "Taos Ski Valley", "state": "NM", "point": "Kachina Peak area", "lat": 36.558, "lon": -105.417},
+  {"id": "ski-santa-fe", "name": "Ski Santa Fe", "state": "NM", "point": "Upper mountain", "lat": 35.796, "lon": -105.802},
+  {"id": "ski-apache", "name": "Ski Apache", "state": "NM", "point": "Upper mountain", "lat": 33.397, "lon": -105.788}
+]

@@ -1,0 +1,2 @@
+# Linux/macOS normally provide IANA timezones. Windows needs this small data package.
+tzdata==2025.2; sys_platform == "win32"

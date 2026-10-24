@@ -1,0 +1,13 @@
+{
+  "timezone": "America/Denver",
+  "daily": [
+    {"dt": 1792778400, "snow": 152.4, "clouds": 95, "wind_speed": 9, "pop": 0.9},
+    {"dt": 1792864800, "snow": 152.4, "clouds": 90, "wind_speed": 8, "pop": 0.9},
+    {"dt": 1792951200, "clouds": 25, "wind_speed": 6.7056, "pop": 0.2},
+    {"dt": 1793037600, "clouds": 10, "wind_speed": 3, "pop": 0},
+    {"dt": 1793124000, "clouds": 10, "wind_speed": 3, "pop": 0},
+    {"dt": 1793210400, "clouds": 10, "wind_speed": 3, "pop": 0},
+    {"dt": 1793296800, "clouds": 10, "wind_speed": 3, "pop": 0},
+    {"dt": 1793383200, "clouds": 10, "wind_speed": 3, "pop": 0}
+  ]
+}

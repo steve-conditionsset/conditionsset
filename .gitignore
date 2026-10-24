@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+.local/
+dist/
+site/data/forecast.json
+*.xlsx
+.wrangler/
+node_modules/
