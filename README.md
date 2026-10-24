@@ -84,7 +84,9 @@ are not bundled with this checkout. The steps below also document rebuilding the
    - `CLOUDFLARE_ACCOUNT_ID`: that account's identifier.
 4. Add repository Actions variable `CLOUDFLARE_PROJECT_NAME` = `conditionsset`
    (or the actual available project name).
-5. Run **Daily forecast and publish** manually from the Actions tab. It runs tests,
+5. Run **Verify one live forecast** from the Actions tab first. This makes one Berthoud
+   Pass request, validates it, and prints only its calculated result; it does not publish.
+   Then run **Daily forecast and publish** manually. It runs tests,
    retrieves and validates all locations, then uses Wrangler to upload `site/`.
    This creates the first populated deployment; inspect the workflow's returned Pages URL.
 6. Verify cards, dates, clearing flags, last-update time, attribution, and mobile layout.
