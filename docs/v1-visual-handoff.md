@@ -1,6 +1,16 @@
 # Conditions Set V1 visual handoff
 
-Implemented locally October 25, 2026. No deployment performed.
+Implemented and deployed October 25, 2026.
+
+Production: <https://conditionsset.pages.dev/>. Commit `cc4f54a` shipped through
+[Daily forecast and publish #5](https://github.com/steve-conditionsset/conditionsset/actions/runs/40220232793).
+All workflow steps passed, including tests, retrieval and validation of twelve real
+forecasts, and publication. Live browser verification confirmed the refreshed layout
+and the October 25, 2026, 12:14 PM MDT successful update timestamp. Live inspection
+confirmed twelve cards, loaded fonts, 6% texture opacity, and no example-data banner.
+The direct asset hash probe was blocked by HTTP 403; browser checks succeeded.
+Topographic opacity remains 6%; further tuning was deferred
+at the user's request.
 
 ## Visible changes
 
