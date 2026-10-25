@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { formatSnow, formatDate, isStale, validateDataset, sortLocations } from '../site/display.mjs';
+import { formatSnow, formatDate, formatStormRange, isStale, validateDataset, sortLocations } from '../site/display.mjs';
 
 const place = (id, state, snowfall_inches, name = id) => ({ id, state, snowfall_inches, name });
 const sortedIds = locations => sortLocations(locations).map(location => location.id);
@@ -63,6 +63,12 @@ test('snow display does not imply extra precision or hide traces', () => {
 test('calendar dates stay on their Mountain date across DST', () => {
   assert.equal(formatDate('2026-03-08'), 'Sun, Mar 8');
   assert.equal(formatDate('2026-11-01'), 'Sun, Nov 1');
+});
+
+test('compact storm ranges distinguish month and year boundaries', () => {
+  assert.equal(formatStormRange('2026-11-02', '2026-11-03'), 'NOV 02–03');
+  assert.equal(formatStormRange('2026-10-31', '2026-11-01'), 'OCT 31–NOV 01');
+  assert.equal(formatStormRange('2026-12-31', '2027-01-01'), 'DEC 31, 2026–JAN 01, 2027');
 });
 
 test('stale warning starts only after 36 hours', () => {

@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Find fresh snow across the Mountain West. Compare the best two-day snowfall forecasts for twelve mountain areas.">
-  <meta name="theme-color" content="#173f35">
+  <meta name="theme-color" content="#262626">
   <title>Conditions Set — Mountain West fresh snow outlook</title>
   <link rel="icon" href="./mountain.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./fonts.css">
   <link rel="stylesheet" href="./styles.css">
   <script type="module" src="./app.mjs"></script>
 </head>
@@ -14,53 +15,40 @@
   <a class="skip-link" href="#outlook">Skip to the forecast</a>
   <div class="page">
     <header class="masthead">
-      <a class="brand" href="./" aria-label="Conditions Set home"><img src="./mountain.svg" width="40" height="32" alt="">CONDITIONS SET</a>
-      <span class="edition">MOUNTAIN WEST <span aria-hidden="true">/</span> WINTER OUTLOOK</span>
+      <h1><a class="brand" href="./" aria-label="Conditions Set home">Conditions Set</a></h1>
     </header>
     <main>
-      <section class="intro" aria-labelledby="title">
-        <div>
-          <p class="eyebrow">TWELVE MOUNTAIN AREAS. ONE SNOW OUTLOOK.</p>
-          <h1 id="title">Follow the<br><em>fresh snow.</em></h1>
-          <p class="intro-copy">Where it’s coming. How much to expect. When to catch it.</p>
-        </div>
-        <div class="intro-aside">
-          <span class="compass" aria-hidden="true">✳</span>
-          <p>Colorado · Utah<br>Wyoming · New Mexico</p>
-          <p class="small-copy">A week of mountain weather,<br>compared in one place.</p>
-        </div>
-      </section>
-
       <section id="outlook" aria-labelledby="outlook-title" aria-busy="true">
         <div class="outlook-heading">
-          <div><p class="eyebrow">THE WEEK AHEAD</p><h2 id="outlook-title">Fresh snow outlook</h2></div>
-          <div class="refresh-info"><p id="updated">Loading forecast…</p><p>Updated daily · Mountain time</p></div>
+          <h2 id="outlook-title">Forecast period loading…</h2>
+          <p id="updated">Loading forecast…</p>
         </div>
         <p id="example-warning" class="notice example" hidden><strong>Illustrative preview.</strong> These are fictional forecasts, not current weather data.</p>
         <p id="stale-warning" class="notice" role="status" hidden><strong>Forecast update overdue.</strong> These results are more than 36 hours old. Dates and amounts may no longer reflect the latest forecast.</p>
-        <div class="legend" aria-label="Snowfall signal thresholds">
-          <span><i class="dot green" aria-hidden="true"></i>Significant <b>12″+</b></span>
-          <span><i class="dot yellow" aria-hidden="true"></i>Moderate <b>2–&lt;12″</b></span>
-          <span><i class="dot neutral" aria-hidden="true"></i>No notable snow <b>&lt;2″</b></span>
-          <span class="sort-note">States ranked by snowiest area; areas by two-day snowfall</span>
-        </div>
         <p id="load-message" class="load-message" role="status">Finding the latest published outlook…</p>
         <ol id="locations" class="locations" aria-label="States ranked by their snowiest mountain area, then areas within each state by two-day forecast snowfall"></ol>
         <noscript><p class="notice">Enable JavaScript to view the published forecast comparison.</p></noscript>
+        <div class="forecast-notes">
+          <p class="sort-note">states ranked by snowiest area, areas by two-day snowfall</p>
+          <div class="legend" aria-label="Snowfall signal thresholds">
+            <span><i class="dot green" aria-hidden="true"></i>Significant: 12″+</span>
+            <span><i class="dot yellow" aria-hidden="true"></i>Moderate: 2–&lt;12″</span>
+            <span><i class="dot neutral" aria-hidden="true"></i>No notable snow: &lt;2″</span>
+          </div>
+        </div>
       </section>
 
       <section class="method" aria-labelledby="method-title">
-        <div><p class="eyebrow">HOW TO READ THE OUTLOOK</p><h2 id="method-title">A weather opportunity.<br>A place to start.</h2></div>
+        <h2 id="method-title">How to Read the Outlook</h2>
         <div class="method-copy">
           <p>Each area shows its snowiest pair of consecutive days within today and the next six days. Totals use daily forecasts, so today’s amount can include hours already elapsed. Dates are in Mountain time.</p>
-          <p>A <span class="clearing-word">clearing</span> flag follows a significant storm: the next day has cloud cover at or below 25%, wind at or below 15 mph, precipitation probability at or below 20%, and no forecast rain or snow.</p>
+          <p>A clearing flag follows a significant storm: the next day has cloud cover at or below 25%, wind at or below 15 mph, precipitation probability at or below 20%, and no forecast rain or snow.</p>
           <p>Forecast snowfall uses OpenWeather’s daily snow in millimeters, divided by 25.4 for inches. Each point represents a broader mountain area; actual snowfall varies with elevation and terrain.</p>
-          <p class="safety">Conditions Set identifies weather opportunities, not skiing safety or terrain suitability. It does not assess avalanche conditions, snowpack stability, resort operations, or access.</p>
+          <p class="safety"><strong>Conditions Set identifies weather opportunities, not skiing safety or terrain suitability. It does not assess avalanche conditions, snowpack stability, resort operations, or access.</strong></p>
         </div>
       </section>
     </main>
     <footer>
-      <div><span class="footer-brand">CONDITIONS SET</span><p>Find the snow. Make your own call.</p></div>
       <a class="attribution" href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer"><span>Weather data provided by OpenWeather</span><img src="./openweather-logo.png" alt="OpenWeather" width="110" height="47"></a>
     </footer>
   </div>

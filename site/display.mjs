@@ -27,6 +27,13 @@ export function formatDate(date, options = { weekday: 'short', month: 'short', d
     .format(new Date(`${date}T12:00:00Z`));
 }
 
+export function formatStormRange(start, end) {
+  const sameYear = start.slice(0, 4) === end.slice(0, 4);
+  const sameMonth = sameYear && start.slice(5, 7) === end.slice(5, 7);
+  const options = { month: 'short', day: '2-digit', ...(!sameYear && { year: 'numeric' }) };
+  return `${formatDate(start, options)}–${formatDate(end, sameMonth ? { day: '2-digit' } : options)}`.toUpperCase();
+}
+
 export function isStale(generatedAt, now = Date.now()) {
   return now - Date.parse(generatedAt) > STALE_HOURS * 60 * 60 * 1000;
 }
