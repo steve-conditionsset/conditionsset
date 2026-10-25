@@ -1,6 +1,56 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { formatSnow, formatDate, isStale, validateDataset } from '../site/display.mjs';
+import { formatSnow, formatDate, isStale, validateDataset, sortLocations } from '../site/display.mjs';
+
+const place = (id, state, snowfall_inches, name = id) => ({ id, state, snowfall_inches, name });
+const sortedIds = locations => sortLocations(locations).map(location => location.id);
+
+test('states rank by maximum rather than total; each state stays together in snowfall order', () => {
+  const locations = [place('ut-low', 'UT', 7), place('co-low', 'CO', 1),
+    place('wy', 'WY', 9), place('co-high', 'CO', 10), place('ut-high', 'UT', 8)];
+  assert.deepEqual(sortedIds(locations), ['co-high', 'co-low', 'wy', 'ut-high', 'ut-low']);
+});
+
+test('tied state maxima use abbreviation before comparing individual locations', () => {
+  assert.deepEqual(sortedIds([place('ut-high', 'UT', 10), place('co-low', 'CO', 0),
+    place('ut-low', 'UT', 9), place('co-high', 'CO', 10)]),
+  ['co-high', 'co-low', 'ut-high', 'ut-low']);
+});
+
+test('tied locations sort by case-insensitive name, then ID', () => {
+  assert.deepEqual(sortedIds([place('z', 'CO', 2, 'Beta'), place('b', 'CO', 2, 'alpha'),
+    place('a', 'CO', 2, 'Alpha')]), ['a', 'b', 'z']);
+});
+
+test('all-zero forecasts sort deterministically by state and name', () => {
+  assert.deepEqual(sortedIds([place('z', 'WY', 0), place('b', 'CO', 0),
+    place('a', 'CO', 0), place('n', 'NM', 0)]), ['a', 'b', 'n', 'z']);
+});
+
+test('state and location comparisons use unrounded snowfall', () => {
+  const locations = [place('co', 'CO', 8.31), place('ut-low', 'UT', 8.32),
+    place('ut-high', 'UT', 8.34)];
+  assert.equal(new Set(locations.map(p => formatSnow(p.snowfall_inches))).size, 1);
+  assert.deepEqual(sortedIds(locations), ['ut-high', 'ut-low', 'co']);
+});
+
+test('sorter accepts empty input and arbitrary states and location counts', () => {
+  assert.deepEqual(sortLocations([]), []);
+  const locations = Array.from({ length: 17 }, (_, i) => place(String(i), i % 2 ? 'AK' : 'CA', i));
+  assert.deepEqual(sortedIds(locations), ['16', '14', '12', '10', '8', '6', '4', '2', '0',
+    '15', '13', '11', '9', '7', '5', '3', '1']);
+  assert.deepEqual(sortedIds([place('one', 'VT', 0)]), ['one']);
+});
+
+test('sorting returns a new array without mutating locations or their records', () => {
+  const locations = Object.freeze([Object.freeze(place('low', 'CO', 1)),
+    Object.freeze(place('high', 'CO', 2))]);
+  const before = structuredClone(locations);
+  const sorted = sortLocations(locations);
+  assert.notEqual(sorted, locations);
+  assert.equal(sorted[0], locations[1]);
+  assert.deepEqual(locations, before);
+});
 
 test('snow display does not imply extra precision or hide traces', () => {
   assert.equal(formatSnow(0), '0″');

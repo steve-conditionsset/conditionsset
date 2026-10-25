@@ -2,6 +2,20 @@
 export const STALE_HOURS = 36;
 export const SIGNAL_LABELS = { green: 'Significant snow', yellow: 'Moderate snow', neutral: 'No notable snow' };
 
+export function sortLocations(locations) {
+  const stateMax = new Map();
+  for (const place of locations) {
+    stateMax.set(place.state, Math.max(stateMax.get(place.state) ?? 0, place.snowfall_inches));
+  }
+  const compareText = (a, b) => a < b ? -1 : a > b ? 1 : 0;
+  return [...locations].sort((a, b) =>
+    stateMax.get(b.state) - stateMax.get(a.state)
+    || compareText(a.state, b.state)
+    || b.snowfall_inches - a.snowfall_inches
+    || compareText(a.name.toLowerCase(), b.name.toLowerCase())
+    || compareText(a.id, b.id));
+}
+
 export function formatSnow(inches) {
   if (inches > 0 && inches < 0.1) return '<0.1″';
   return `${Number(inches.toFixed(1))}″`;

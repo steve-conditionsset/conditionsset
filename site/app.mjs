@@ -1,4 +1,4 @@
-import { formatSnow, formatDate, isStale, validateDataset, SIGNAL_LABELS } from './display.mjs';
+import { formatSnow, formatDate, isStale, validateDataset, sortLocations, SIGNAL_LABELS } from './display.mjs';
 
 const board = document.querySelector('#locations');
 const message = document.querySelector('#load-message');
@@ -51,7 +51,7 @@ async function loadForecast() {
     const updateStaleness = () => { document.querySelector('#stale-warning').hidden = !isStale(data.generated_at); };
     updateStaleness();
     setInterval(updateStaleness, 60_000);
-    board.replaceChildren(...data.locations.map(locationCard));
+    board.replaceChildren(...sortLocations(data.locations).map(locationCard));
     message.textContent = '';
   } catch {
     document.querySelector('#updated').textContent = 'Forecast unavailable';

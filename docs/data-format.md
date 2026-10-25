@@ -13,6 +13,15 @@ Changes to field meaning or removal require a schema version change.
 | `evaluation_end` | string | Start plus six calendar days |
 | `locations` | array | Exactly twelve results, sorted by unrounded snow descending, then name |
 
+The website determines display order independently of JSON array order. It groups
+locations by state, ranking states by their highest location snowfall descending,
+then locations within each state by snowfall descending. Comparisons use unrounded
+`snowfall_inches`. Tied state maxima use state abbreviation alphabetically; tied
+locations use case-insensitive name, then ID. Card numbers indicate position in this
+grouped display, not a global snowfall ranking. The display sorter derives groups
+from its input; expanding supported locations still requires configuration and
+validation changes.
+
 Every location has:
 
 | Field | Type | Meaning |
